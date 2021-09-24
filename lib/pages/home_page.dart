@@ -1,7 +1,15 @@
+import 'dart:io';
+
 import 'package:band_names/models/band.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   List<Band> bands = [
     Band(id: '1', name: 'Mark Anthony', votes: 5),
     Band(id: '2', name: 'Daddy Yankey', votes: 4),
@@ -50,6 +58,60 @@ class HomePage extends StatelessWidget {
   }
 
   addNewBand() {
-    print('addNewBand');
+    final txtControllerr = TextEditingController();
+    if (Platform.isAndroid) {
+      return showDialog(
+          context: this.context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('New band name'),
+              content: TextField(
+                controller: txtControllerr,
+              ),
+              actions: <Widget>[
+                MaterialButton(
+                  child: Text('Add'),
+                  onPressed: () => _addBandToList(txtControllerr.text),
+                  textColor: Colors.blue,
+                )
+              ],
+            );
+          });
+    }
+
+    if (Platform.isIOS) {
+      return showCupertinoDialog(
+          context: context,
+          builder: (_) {
+            return CupertinoAlertDialog(
+              title: Text('New band name'),
+              content: CupertinoTextField(
+                controller: txtControllerr,
+              ),
+              actions: <Widget>[
+                CupertinoDialogAction(
+                  isDefaultAction: true,
+                  child: Text('Add'),
+                  onPressed: () => _addBandToList(txtControllerr.text),
+                ),
+                CupertinoDialogAction(
+                  isDestructiveAction: true,
+                  child: Text('Dismiss'),
+                  onPressed: () => Navigator.pop(context),
+                )
+              ],
+            );
+          });
+    }
+  }
+
+  void _addBandToList(String name) {
+    if (name.length > 1) {
+      // podemos guardarlo
+      this.bands.add(Band(id: DateTime.now().toString(), name: name, votes: 0));
+      setState(() {});
+    }
+
+    Navigator.pop(context);
   }
 }
