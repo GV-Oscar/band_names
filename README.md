@@ -1,16 +1,22 @@
 # band_names
 
-A new Flutter project.
+Aplicación en tiempo real para realizar votaciones de bandas, la app permite:
+1. Agregar una Banda
+2. Borrar una Banda
+3. Votar por una Banda
+4. Ver graficas en tiempo real de las votaciones
 
-## Getting Started
+<img src="https://firebasestorage.googleapis.com/v0/b/gvoscar-4686d.appspot.com/o/res%2FApp-BandNames-Flutter.gif?alt=media&token=e701874e-7af0-47c1-858c-0c6b0eb23db0" width="203" height="360" />
 
-This project is a starting point for a Flutter application.
+## Tecnología Utilizada
 
-A few resources to get you started if this is your first Flutter project:
+Esta aplicación fue desarrollada en Flutter, utiliza una comunicación en tiempo real lograda gracias a la implementación del Servidor Secket.io alojado en Heroku
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Puede ver el código fuente del servidor aquí:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Servidor Básico de Sockets con Express y Node para Aplicación de BandNames](https://github.com/GV-Oscar/band_names_server)
+
+
+## [powered by Oscar Giraldo](https://www.linkedin.com/in/gvoscar20/)
+
+¿Tienes una idea de negocio, necesitas un PMV para validar tu Nicho y comprobar tu Tracción? Llegaste al lugar indicado. [Somos Pasili.com](https://www.pasili.com/) | Expertos en Soluciones Tecnológicas a tu Medida .
